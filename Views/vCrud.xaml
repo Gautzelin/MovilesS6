@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jcorreaS6.Views.vCrud"
+             Title="vCrud">
+    <VerticalStackLayout Padding="10" Spacing="10">
+
+        <Label 
+            Text="CRUD BOOKING"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontSize="24"
+            Margin="0,20"/>
+
+        <!-- Encabezados -->
+        <Grid Padding="10" ColumnSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Booking ID" Grid.Column="0" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Label Text="Name" Grid.Column="1" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Label Text="Last Name" Grid.Column="2" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Label Text="Email" Grid.Column="3" FontAttributes="Bold" HorizontalOptions="Center"/>
+        </Grid>
+
+        <!-- Lista de datos -->
+        <ListView x:Name="lvBooking" SeparatorVisibility="Default">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10" ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="{Binding bookingId}" Grid.Column="0" HorizontalOptions="Center"/>
+                            <Label Text="{Binding name}" Grid.Column="1" HorizontalOptions="Center"/>
+                            <Label Text="{Binding lastName}" Grid.Column="2" HorizontalOptions="Center"/>
+                            <Label Text="{Binding email}" Grid.Column="3" HorizontalOptions="Center"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>
