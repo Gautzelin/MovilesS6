@@ -3,32 +3,62 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="jcorreaS6.Views.vCrud"
              Title="vCrud">
-    <VerticalStackLayout Padding="10" Spacing="10">
+    <VerticalStackLayout Padding="20" Spacing="15">
 
-        <Label 
-            Text="CRUD BOOKING"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center"
-            FontSize="24"
-            Margin="0,20"/>
+        <!-- Título -->
+        <Label Text="CRUD BOOKING"
+               FontSize="24"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand"
+               FontAttributes="Bold"
+               Margin="0,20" />
 
-        <!-- Encabezados -->
-        <Grid Padding="10" ColumnSpacing="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+        <!-- Campos para ingresar datos del booking -->
+        <Entry x:Name="entryName" 
+               Placeholder="Name" 
+               Keyboard="Text"
+               Margin="0,10" />
 
-            <Label Text="Booking ID" Grid.Column="0" FontAttributes="Bold" HorizontalOptions="Center"/>
-            <Label Text="Name" Grid.Column="1" FontAttributes="Bold" HorizontalOptions="Center"/>
-            <Label Text="Last Name" Grid.Column="2" FontAttributes="Bold" HorizontalOptions="Center"/>
-            <Label Text="Email" Grid.Column="3" FontAttributes="Bold" HorizontalOptions="Center"/>
-        </Grid>
+        <Entry x:Name="entryLastName" 
+               Placeholder="Last Name" 
+               Keyboard="Text"
+               Margin="0,10" />
 
-        <!-- Lista de datos -->
-        <ListView x:Name="lvBooking" SeparatorVisibility="Default">
+        <Entry x:Name="entryEmail" 
+               Placeholder="Email" 
+               Keyboard="Email"
+               Margin="0,10" />
+
+        <!-- Fila de botones -->
+        <HorizontalStackLayout HorizontalOptions="FillAndExpand" Spacing="10" Margin="0,20">
+            <Button Text="Agregar Booking"
+                    BackgroundColor="#4CAF50"
+                    TextColor="White"
+                    Clicked="Button_Clicked"
+                    HorizontalOptions="FillAndExpand"/>
+            <Button Text="Actualizar Booking"
+                    BackgroundColor="#FF9800"
+                    TextColor="White"
+                    Clicked="Button_Clicked_1"
+                    HorizontalOptions="FillAndExpand"/>
+            <Button Text="Eliminar Booking"
+                    BackgroundColor="#F44336"
+                    TextColor="White"
+                    Clicked="Button_Clicked_2"
+                    HorizontalOptions="FillAndExpand"/>
+        </HorizontalStackLayout>
+
+        <!-- Lista de bookings -->
+        <Label Text="Bookings Disponibles"
+               FontSize="20"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand"
+               FontAttributes="Bold"
+               Margin="0,20"/>
+
+        <ListView x:Name="lvBooking"
+                  SeparatorVisibility="Default"
+                  ItemSelected="lvBooking_ItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -49,5 +79,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
     </VerticalStackLayout>
 </ContentPage>
